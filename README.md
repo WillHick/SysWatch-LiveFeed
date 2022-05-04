@@ -1,4 +1,4 @@
-# SysWatch Live Feed
+# SysWatch Live Feed 1.0.0.1
 SysWatch Live Event Feed Application, View Events In A Standalone Environment
 
 # About 
