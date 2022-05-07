@@ -1,7 +1,7 @@
 # SysWatch Live Feed 1.0.0.2, Whats New
 SysWatch Live Event Feed Application, View Events In A Standalone Environment
 
-Whats New : New Settings Menu, Enabled and Disable The Feed, Tidyied The Feed (Output Is Neater) and Fixes
+Whats New : New Settings Menu, Enable and Disable The Feed, Tidied The Feed (Output Is Neater) and Fixes
 
 # About 
 The Live Feed Application Seperates The Feed Feature From The SysWatch Application To Give It More Room To Run
