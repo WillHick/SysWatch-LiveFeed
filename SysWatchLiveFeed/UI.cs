@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,15 @@ namespace SysWatchLiveFeed
             this.CenterToScreen();
 
             string path = "C:/";
-            SysWatchLiveFeed.Path = path;
-            SysWatchLiveFeed.EnableRaisingEvents = true;
-            SysWatchLiveFeed.IncludeSubdirectories = true;
+            SysWatchLiveFeedComp.Path = path;
+            SysWatchLiveFeedComp.EnableRaisingEvents = true;
+            SysWatchLiveFeedComp.IncludeSubdirectories = true;
+
+            WatchingOutput.Text = "Currently Watching : " + SysWatchLiveFeedComp.Path.ToString();
+
+            //Hide UI Elements
+            Underline.Hide();
+            OptionsMenu.Hide();
         }
 
         private int _eventcount = 0;
@@ -35,7 +42,7 @@ namespace SysWatchLiveFeed
             {
                 output.Text,
                 Environment.NewLine,
-                " File Changed - ",
+                "  - File Changed - ",
                 e.Name,
                 e.FullPath
             });
@@ -52,7 +59,7 @@ namespace SysWatchLiveFeed
             {
                 output.Text,
                 Environment.NewLine,
-                " File Created - ",
+                "  - File Created - ",
                 e.Name,
                 e.FullPath
             });
@@ -69,7 +76,7 @@ namespace SysWatchLiveFeed
             {
                 output.Text,
                 Environment.NewLine,
-                " File Deleted - ",
+                "  - File Deleted - ",
                 e.Name,
                 e.FullPath
             });
@@ -86,7 +93,7 @@ namespace SysWatchLiveFeed
             {
                 output.Text,
                 Environment.NewLine,
-                " File Renamed - ",
+                "   - File Renamed - ",
                 e.Name,
                 e.FullPath
             });
@@ -94,6 +101,64 @@ namespace SysWatchLiveFeed
 
             this._eventcount++;
             EventHeader.Text = "Events Logged : " + this._eventcount.ToString();
+        }
+
+        private void More_Click(object sender, EventArgs e)
+        {
+            if (OptionsMenu.Visible == false)
+            {
+                OptionsMenu.Visible = true;
+                OptionsMenu.Show();
+
+                Underline.Show();
+            }
+            else if (OptionsMenu.Visible == true)
+            {
+                OptionsMenu.Visible = false;
+                OptionsMenu.Hide();
+
+                Underline.Hide();
+            }
+        }
+
+        private void EventToggle_Click(object sender, EventArgs e)
+        {
+            if (SysWatchLiveFeedComp.EnableRaisingEvents == true)
+            {
+                SysWatchLiveFeedComp.EnableRaisingEvents = false;
+                EventToggle.BackgroundImage = SysWatchLiveFeed.Properties.Resources.icons8_toggle_off_96;
+            }
+            else if (SysWatchLiveFeedComp.EnableRaisingEvents == false)
+            {
+                SysWatchLiveFeedComp.EnableRaisingEvents = true;
+                EventToggle.BackgroundImage = SysWatchLiveFeed.Properties.Resources.icons8_toggle_on_96;
+            }
+        }
+        private void SubToggle_Click(object sender, EventArgs e)
+        {
+            if (SysWatchLiveFeedComp.IncludeSubdirectories == true)
+            {
+                SysWatchLiveFeedComp.IncludeSubdirectories = false;
+                SubToggle.BackgroundImage = SysWatchLiveFeed.Properties.Resources.icons8_toggle_off_96;
+            }
+            else if (SysWatchLiveFeedComp.IncludeSubdirectories == false)
+            {
+                SysWatchLiveFeedComp.IncludeSubdirectories = true;
+                SubToggle.BackgroundImage = SysWatchLiveFeed.Properties.Resources.icons8_toggle_on_96;
+            }
+        }
+
+        private void MenuRoundedLink_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://icons8.com/icon/36389/menu-rounded");
+        }
+        private void ToggleOnLink_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://icons8.com/icon/88034/toggle-on");
+        }
+        private void ToggleOffLink_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://icons8.com/icon/20006/toggle-off");
         }
     }
 }
