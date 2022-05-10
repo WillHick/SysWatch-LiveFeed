@@ -160,5 +160,21 @@ namespace SysWatchLiveFeed
         {
             Process.Start("https://icons8.com/icon/20006/toggle-off");
         }
+
+        private void ChangePath_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void ClearAll_Click(object sender, EventArgs e)
+        {
+            _eventcount = 0;
+
+            Output.Clear();
+            EventHeader.Text = "Events Logged : " + this._eventcount.ToString();
+        }
+        private void SaveFeed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
