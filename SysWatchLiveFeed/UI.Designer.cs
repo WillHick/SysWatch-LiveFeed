@@ -36,6 +36,9 @@ namespace SysWatchLiveFeed
             this.BuildHeader = new System.Windows.Forms.Label();
             this.EventHeader = new System.Windows.Forms.Label();
             this.OptionsMenu = new System.Windows.Forms.Panel();
+            this.CopyFeed = new System.Windows.Forms.Button();
+            this.ClearAll = new System.Windows.Forms.Button();
+            this.ChangePath = new System.Windows.Forms.Button();
             this.ToggleOffLink = new System.Windows.Forms.Label();
             this.ToggleOnLink = new System.Windows.Forms.Label();
             this.MenuRoundedLink = new System.Windows.Forms.Label();
@@ -46,13 +49,18 @@ namespace SysWatchLiveFeed
             this.SubToggle = new System.Windows.Forms.Button();
             this.MenuIcon = new System.Windows.Forms.Button();
             this.SubDirect = new System.Windows.Forms.Label();
+            this.SelectPathPane = new System.Windows.Forms.Panel();
+            this.Note = new System.Windows.Forms.Label();
+            this.NewPathInput = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.UpdatePath = new System.Windows.Forms.Button();
+            this.NewHelp = new System.Windows.Forms.Label();
+            this.NewPath = new System.Windows.Forms.Label();
             this.Underline = new System.Windows.Forms.Panel();
             this.More = new System.Windows.Forms.Button();
-            this.ChangePath = new System.Windows.Forms.Button();
-            this.ClearAll = new System.Windows.Forms.Button();
-            this.SaveFeed = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SysWatchLiveFeedComp)).BeginInit();
             this.OptionsMenu.SuspendLayout();
+            this.SelectPathPane.SuspendLayout();
             this.SuspendLayout();
             // 
             // SysWatchLiveFeedComp
@@ -117,7 +125,7 @@ namespace SysWatchLiveFeed
             // 
             this.OptionsMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.OptionsMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OptionsMenu.Controls.Add(this.SaveFeed);
+            this.OptionsMenu.Controls.Add(this.CopyFeed);
             this.OptionsMenu.Controls.Add(this.ClearAll);
             this.OptionsMenu.Controls.Add(this.ChangePath);
             this.OptionsMenu.Controls.Add(this.ToggleOffLink);
@@ -130,11 +138,60 @@ namespace SysWatchLiveFeed
             this.OptionsMenu.Controls.Add(this.SubToggle);
             this.OptionsMenu.Controls.Add(this.MenuIcon);
             this.OptionsMenu.Controls.Add(this.SubDirect);
+            this.OptionsMenu.Controls.Add(this.SelectPathPane);
             this.OptionsMenu.Location = new System.Drawing.Point(550, 98);
             this.OptionsMenu.Name = "OptionsMenu";
             this.OptionsMenu.Size = new System.Drawing.Size(467, 505);
             this.OptionsMenu.TabIndex = 42;
             this.OptionsMenu.Visible = false;
+            // 
+            // CopyFeed
+            // 
+            this.CopyFeed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.CopyFeed.FlatAppearance.BorderSize = 0;
+            this.CopyFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CopyFeed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.CopyFeed.ForeColor = System.Drawing.Color.White;
+            this.CopyFeed.Location = new System.Drawing.Point(23, 304);
+            this.CopyFeed.Name = "CopyFeed";
+            this.CopyFeed.Size = new System.Drawing.Size(420, 53);
+            this.CopyFeed.TabIndex = 64;
+            this.CopyFeed.Text = "Copy Feed To Clipboard";
+            this.CopyFeed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CopyFeed.UseVisualStyleBackColor = true;
+            this.CopyFeed.Click += new System.EventHandler(this.CopyFeed_Click);
+            // 
+            // ClearAll
+            // 
+            this.ClearAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.ClearAll.FlatAppearance.BorderSize = 0;
+            this.ClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ClearAll.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.ClearAll.ForeColor = System.Drawing.Color.White;
+            this.ClearAll.Location = new System.Drawing.Point(23, 254);
+            this.ClearAll.Name = "ClearAll";
+            this.ClearAll.Size = new System.Drawing.Size(420, 53);
+            this.ClearAll.TabIndex = 63;
+            this.ClearAll.Text = "Clear Feed and Log Count";
+            this.ClearAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClearAll.UseVisualStyleBackColor = true;
+            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
+            // 
+            // ChangePath
+            // 
+            this.ChangePath.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.ChangePath.FlatAppearance.BorderSize = 0;
+            this.ChangePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ChangePath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.ChangePath.ForeColor = System.Drawing.Color.White;
+            this.ChangePath.Location = new System.Drawing.Point(23, 202);
+            this.ChangePath.Name = "ChangePath";
+            this.ChangePath.Size = new System.Drawing.Size(420, 53);
+            this.ChangePath.TabIndex = 62;
+            this.ChangePath.Text = "Change Watch Path";
+            this.ChangePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ChangePath.UseVisualStyleBackColor = true;
+            this.ChangePath.Click += new System.EventHandler(this.ChangePath_Click);
             // 
             // ToggleOffLink
             // 
@@ -260,6 +317,96 @@ namespace SysWatchLiveFeed
             this.SubDirect.TabIndex = 29;
             this.SubDirect.Text = "Include Subdirectories";
             // 
+            // SelectPathPane
+            // 
+            this.SelectPathPane.Controls.Add(this.Note);
+            this.SelectPathPane.Controls.Add(this.NewPathInput);
+            this.SelectPathPane.Controls.Add(this.button2);
+            this.SelectPathPane.Controls.Add(this.UpdatePath);
+            this.SelectPathPane.Controls.Add(this.NewHelp);
+            this.SelectPathPane.Controls.Add(this.NewPath);
+            this.SelectPathPane.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectPathPane.Location = new System.Drawing.Point(0, 0);
+            this.SelectPathPane.Name = "SelectPathPane";
+            this.SelectPathPane.Size = new System.Drawing.Size(465, 503);
+            this.SelectPathPane.TabIndex = 65;
+            this.SelectPathPane.Visible = false;
+            // 
+            // Note
+            // 
+            this.Note.AutoSize = true;
+            this.Note.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.Note.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.Note.Location = new System.Drawing.Point(26, 275);
+            this.Note.Name = "Note";
+            this.Note.Size = new System.Drawing.Size(390, 120);
+            this.Note.TabIndex = 68;
+            this.Note.Text = "Note:\r\nIf The Feed Isnt Updating, You Have \r\nHave Entered Your Choosen Path\r\nIn W" +
+    "rong Or Its Inncorrect.\r\n";
+            // 
+            // NewPathInput
+            // 
+            this.NewPathInput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.NewPathInput.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.NewPathInput.Font = new System.Drawing.Font("Microsoft YaHei", 11.5F);
+            this.NewPathInput.ForeColor = System.Drawing.Color.White;
+            this.NewPathInput.Location = new System.Drawing.Point(34, 160);
+            this.NewPathInput.Name = "NewPathInput";
+            this.NewPathInput.Size = new System.Drawing.Size(399, 31);
+            this.NewPathInput.TabIndex = 67;
+            this.NewPathInput.Text = "C:/";
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImage = global::SysWatchLiveFeed.Properties.Resources.icons8_menu_rounded_100;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(32, 26);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(30, 30);
+            this.button2.TabIndex = 66;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // UpdatePath
+            // 
+            this.UpdatePath.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
+            this.UpdatePath.FlatAppearance.BorderSize = 0;
+            this.UpdatePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UpdatePath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.UpdatePath.ForeColor = System.Drawing.Color.White;
+            this.UpdatePath.Location = new System.Drawing.Point(23, 211);
+            this.UpdatePath.Name = "UpdatePath";
+            this.UpdatePath.Size = new System.Drawing.Size(420, 53);
+            this.UpdatePath.TabIndex = 65;
+            this.UpdatePath.Text = "Update Path";
+            this.UpdatePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.UpdatePath.UseVisualStyleBackColor = true;
+            this.UpdatePath.Click += new System.EventHandler(this.UpdatePath_Click);
+            // 
+            // NewHelp
+            // 
+            this.NewHelp.AutoSize = true;
+            this.NewHelp.Font = new System.Drawing.Font("Microsoft YaHei", 7.3F, System.Drawing.FontStyle.Bold);
+            this.NewHelp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.NewHelp.Location = new System.Drawing.Point(30, 115);
+            this.NewHelp.Name = "NewHelp";
+            this.NewHelp.Size = new System.Drawing.Size(178, 19);
+            this.NewHelp.TabIndex = 64;
+            this.NewHelp.Text = "Input New Path Below";
+            // 
+            // NewPath
+            // 
+            this.NewPath.AutoSize = true;
+            this.NewPath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.NewPath.ForeColor = System.Drawing.Color.White;
+            this.NewPath.Location = new System.Drawing.Point(30, 81);
+            this.NewPath.Name = "NewPath";
+            this.NewPath.Size = new System.Drawing.Size(229, 30);
+            this.NewPath.TabIndex = 63;
+            this.NewPath.Text = "Change Current Path";
+            // 
             // Underline
             // 
             this.Underline.BackColor = System.Drawing.Color.White;
@@ -285,54 +432,6 @@ namespace SysWatchLiveFeed
             this.More.UseVisualStyleBackColor = true;
             this.More.Click += new System.EventHandler(this.More_Click);
             // 
-            // ChangePath
-            // 
-            this.ChangePath.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ChangePath.FlatAppearance.BorderSize = 0;
-            this.ChangePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ChangePath.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.ChangePath.ForeColor = System.Drawing.Color.White;
-            this.ChangePath.Location = new System.Drawing.Point(23, 202);
-            this.ChangePath.Name = "ChangePath";
-            this.ChangePath.Size = new System.Drawing.Size(420, 53);
-            this.ChangePath.TabIndex = 62;
-            this.ChangePath.Text = "Change Watch Path";
-            this.ChangePath.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ChangePath.UseVisualStyleBackColor = true;
-            this.ChangePath.Click += new System.EventHandler(this.ChangePath_Click);
-            // 
-            // ClearAll
-            // 
-            this.ClearAll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.ClearAll.FlatAppearance.BorderSize = 0;
-            this.ClearAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ClearAll.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.ClearAll.ForeColor = System.Drawing.Color.White;
-            this.ClearAll.Location = new System.Drawing.Point(23, 254);
-            this.ClearAll.Name = "ClearAll";
-            this.ClearAll.Size = new System.Drawing.Size(420, 53);
-            this.ClearAll.TabIndex = 63;
-            this.ClearAll.Text = "Clear Feed and Log Count";
-            this.ClearAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ClearAll.UseVisualStyleBackColor = true;
-            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
-            // 
-            // SaveFeed
-            // 
-            this.SaveFeed.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.SaveFeed.FlatAppearance.BorderSize = 0;
-            this.SaveFeed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveFeed.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.SaveFeed.ForeColor = System.Drawing.Color.White;
-            this.SaveFeed.Location = new System.Drawing.Point(23, 304);
-            this.SaveFeed.Name = "SaveFeed";
-            this.SaveFeed.Size = new System.Drawing.Size(420, 53);
-            this.SaveFeed.TabIndex = 64;
-            this.SaveFeed.Text = "Save Feed";
-            this.SaveFeed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveFeed.UseVisualStyleBackColor = true;
-            this.SaveFeed.Click += new System.EventHandler(this.SaveFeed_Click);
-            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -356,6 +455,8 @@ namespace SysWatchLiveFeed
             ((System.ComponentModel.ISupportInitialize)(this.SysWatchLiveFeedComp)).EndInit();
             this.OptionsMenu.ResumeLayout(false);
             this.OptionsMenu.PerformLayout();
+            this.SelectPathPane.ResumeLayout(false);
+            this.SelectPathPane.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,8 +483,15 @@ namespace SysWatchLiveFeed
         private System.Windows.Forms.Label MenuRoundedLink;
         private System.Windows.Forms.Label IconsByIcons8;
         private System.Windows.Forms.Button ChangePath;
-        private System.Windows.Forms.Button SaveFeed;
+        private System.Windows.Forms.Button CopyFeed;
         private System.Windows.Forms.Button ClearAll;
+        private System.Windows.Forms.Panel SelectPathPane;
+        private System.Windows.Forms.TextBox NewPathInput;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button UpdatePath;
+        private System.Windows.Forms.Label NewHelp;
+        private System.Windows.Forms.Label NewPath;
+        private System.Windows.Forms.Label Note;
     }
 }
 

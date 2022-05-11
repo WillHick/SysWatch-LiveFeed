@@ -20,6 +20,7 @@ namespace SysWatchLiveFeed
         private void UI_Load(object sender, EventArgs e)
         {
             this.CenterToScreen();
+            SelectPathPane.Hide();
 
             string path = "C:/";
             SysWatchLiveFeedComp.Path = path;
@@ -93,7 +94,7 @@ namespace SysWatchLiveFeed
             {
                 output.Text,
                 Environment.NewLine,
-                "   - File Renamed - ",
+                "  - File Renamed - ",
                 e.Name,
                 e.FullPath
             });
@@ -163,8 +164,32 @@ namespace SysWatchLiveFeed
 
         private void ChangePath_Click(object sender, EventArgs e)
         {
-            
+            SelectPathPane.Show();
+
+            SelectPathPane.BringToFront();
+            SelectPathPane.Visible = true;
         }
+        private void UpdatePath_Click(object sender, EventArgs e)
+        {
+            //Hide In Menu Pane
+            SelectPathPane.Hide();
+
+            SelectPathPane.SendToBack();
+            SelectPathPane.Visible = false;
+
+            //Update Path
+            if (NewPathInput.Text == string.Empty)
+            {
+                if (NewPathInput.Visible == false)
+                {
+                    MessageBox.Show("Please Enter A Valid Path");
+                    return;
+                }
+            }
+            SysWatchLiveFeedComp.Path = NewPathInput.Text;
+            WatchingOutput.Text = "Currently Watching : " + NewPathInput.Text;
+        }
+
         private void ClearAll_Click(object sender, EventArgs e)
         {
             _eventcount = 0;
@@ -172,9 +197,9 @@ namespace SysWatchLiveFeed
             Output.Clear();
             EventHeader.Text = "Events Logged : " + this._eventcount.ToString();
         }
-        private void SaveFeed_Click(object sender, EventArgs e)
+        private void CopyFeed_Click(object sender, EventArgs e)
         {
-
+            Clipboard.SetText("Copied At  : " + DateTime.Now.ToShortTimeString() + Environment.NewLine + Output.Text.ToString());
         }
     }
 }
