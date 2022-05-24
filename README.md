@@ -1,6 +1,6 @@
 # SysWatch Live Feed 1.2
 
-<a href="https://"><img src="https://img.shields.io/badge/Language-C%23-2ea44f" alt="Language - C#">   </a> <a href="https://"><img src="https://img.shields.io/badge/Platform-Windows-f34a26" alt="Platform - Windows"></a>
+<a href="https://"><img src="https://img.shields.io/badge/Language-C%23-2ea44f" alt="Language - C#">   <a href="https://www.microsoft.com/" title="Go to Microsoft homepage"><img src="https://img.shields.io/badge/OS-Windows-blue?logo=windows&logoColor=white" alt="OS - Windows"></a>
 
 # About 
 The Live Feed Application Seperates The Feed Feature From The SysWatch Application To Give It More Room To Run, The Feed App Will Show All Event Paths Into A List.
